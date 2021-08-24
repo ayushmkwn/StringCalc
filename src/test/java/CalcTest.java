@@ -29,4 +29,9 @@ public class CalcTest {
     public void sumofMultipleValue() {
         Assert.assertEquals(15,calc.add("1,2,8,4"));
     }
+
+    @Test
+    public void sumofMultipleValueNewLine() {
+        Assert.assertEquals(32,calc.add("20,10\n1,1"));
+    }
 }
