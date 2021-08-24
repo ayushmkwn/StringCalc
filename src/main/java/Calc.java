@@ -6,7 +6,8 @@ public class Calc {
         } else if (input.length() == 1) {
             return Integer.parseInt(input);
         } else {
-            String[] nums=input.split(",");
+            String[] nums=input.split(",|\n");
+            //String[] nums=input.split("\n");
             return sum(nums);
         }
     }
