@@ -24,4 +24,9 @@ public class CalcTest {
     public void sumofTwoValue() {
         Assert.assertEquals(10,calc.add("5,5"));
     }
+
+    @Test
+    public void sumofMultipleValue() {
+        Assert.assertEquals(11,calc.add("1,2,8"));
+    }
 }
