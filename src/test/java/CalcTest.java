@@ -32,6 +32,6 @@ public class CalcTest {
 
     @Test
     public void sumofMultipleValueNewLine() {
-        Assert.assertEquals(32,calc.add("20,10\n1,1"));
+        Assert.assertEquals(50,calc.add("20\n10\n19,1"));
     }
 }
