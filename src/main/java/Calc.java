@@ -7,9 +7,14 @@ public class Calc {
             return Integer.parseInt(input);
         } else {
             String[] nums=input.split(",");
-            int sum = Integer.parseInt(nums[0]) + Integer.parseInt(nums[1]);
-            return sum;
+            return sum(nums);
         }
     }
-
+    private int sum(String[] nums){
+        int sum=0;
+        for(String values:nums){
+            sum+=Integer.parseInt(values);
+        }
+        return sum;
+    }
 }
