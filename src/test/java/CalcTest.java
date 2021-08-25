@@ -67,4 +67,9 @@ public class CalcTest {
     public void greaterThanThousandIgnored() {
         Assert.assertEquals(100,calc.add("10,50,1010,40"));
     }
+
+    @Test
+    public void greaterThanThousandIgnoredSingleValue() {
+        Assert.assertEquals(0,calc.add("1500"));
+    }
 }
