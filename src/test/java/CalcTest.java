@@ -44,4 +44,9 @@ public class CalcTest {
     public void diffDelimiters() {
         Assert.assertEquals(3,calc.add("//;\n1;2"));
     }
+
+    @Test
+    public void negativeNumberTest() {
+        Assert.assertEquals("Negatives not allowed: [-10, -20]", calc.add("5,-10,15,-20,30") );
+    }
 }
