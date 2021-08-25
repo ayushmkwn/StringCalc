@@ -62,4 +62,9 @@ public class CalcTest {
             Assert.assertEquals("Negative not allowed: -5",e.getMessage());
         }
     }
+
+    @Test
+    public void greaterThanThousandIgnored() {
+        Assert.assertEquals(100,calc.add("10,50,1010,40"));
+    }
 }
