@@ -37,6 +37,9 @@ public class Calc {
                     checkNegativeNumber.append(","+values.toString());
                 }
             }
+            if(Integer.parseInt(values) > 1000) {
+                continue;
+            }
             sum+=Integer.parseInt(values);
         }
         return sum;
