@@ -1,10 +1,15 @@
 public class Calc {
     StringBuffer checkNegativeNumber = new StringBuffer();
+
     public int add(String input) {
         if (input.length() == 0) {
             return 0;
         } else if (input.length() == 1) {
-            return Integer.parseInt(input);
+            int j = Integer.parseInt(input);
+            if(j < 0) {
+                throw new IllegalArgumentException("Negative not allowed: "+String.valueOf(j));
+            }
+            return j;
         } else {
             int i = 0;
             if(input.matches("//(.)\n(.*)")) {

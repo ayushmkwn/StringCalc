@@ -53,4 +53,13 @@ public class CalcTest {
             Assert.assertEquals("Negative not allowed: -10,-20",e.getMessage());
         }
     }
+
+    @Test
+    public void negativeNumberTestSingle() {
+        try {
+            calc.add("-5");
+        } catch (IllegalArgumentException e) {
+            Assert.assertEquals("Negative not allowed: -5",e.getMessage());
+        }
+    }
 }
