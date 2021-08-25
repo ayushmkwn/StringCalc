@@ -34,4 +34,9 @@ public class CalcTest {
     public void sumofMultipleValueNewLine() {
         Assert.assertEquals(50,calc.add("20\n10\n19,1"));
     }
+
+    @Test
+    public void allNewLine() {
+        Assert.assertEquals(0,calc.add("\n\n\n\n"));
+    }
 }
