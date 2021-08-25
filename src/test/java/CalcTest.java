@@ -72,4 +72,9 @@ public class CalcTest {
     public void greaterThanThousandIgnoredSingleValue() {
         Assert.assertEquals(0,calc.add("1500"));
     }
+
+    @Test
+    public void anyLengthOfDelimiter() {
+        Assert.assertEquals(6,calc.add("//[***]\n1***2***3"));
+    }
 }
