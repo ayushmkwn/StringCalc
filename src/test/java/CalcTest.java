@@ -39,4 +39,9 @@ public class CalcTest {
     public void allNewLine() {
         Assert.assertEquals(0,calc.add("\n\n\n\n"));
     }
+
+    @Test
+    public void diffDelimiters() {
+        Assert.assertEquals(3,calc.add("//;\n1;2"));
+    }
 }
