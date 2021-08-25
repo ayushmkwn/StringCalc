@@ -6,9 +6,18 @@ public class Calc {
         } else if (input.length() == 1) {
             return Integer.parseInt(input);
         } else {
-            String[] nums=input.split(",|\n");
-            //String[] nums=input.split("\n");
-            return sum(nums);
+//            String[] nums=input.split(",|\n");
+//            //String[] nums=input.split("\n");
+//            return sum(nums);
+
+            int i = 0;
+            if(input.matches("//(.)\n(.*)")) {
+                char delimiter = input.charAt(2);
+                String newStr = input.substring(4);
+                String[] nums = newStr.split(Character.toString(delimiter));
+                i = sum(nums);
+            }
+            return i;
         }
     }
     private int sum(String[] nums){
