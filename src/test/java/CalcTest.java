@@ -47,6 +47,10 @@ public class CalcTest {
 
     @Test
     public void negativeNumberTest() {
-        Assert.assertEquals("Negatives not allowed: [-10, -20]", calc.add("5,-10,15,-20,30") );
+        try {
+            calc.add("5,-10,15,-20,30");
+        } catch (IllegalArgumentException e) {
+            Assert.assertEquals("Negative not allowed: -10,-20",e.getMessage());
+        }
     }
 }

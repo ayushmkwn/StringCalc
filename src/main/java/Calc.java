@@ -1,6 +1,6 @@
 public class Calc {
+    StringBuffer checkNegativeNumber = new StringBuffer();
     public int add(String input) {
-
         if (input.length() == 0) {
             return 0;
         } else if (input.length() == 1) {
@@ -16,12 +16,22 @@ public class Calc {
                 String[] nums=input.split(",|\n");
                 i = sum(nums);
             }
+            if(!checkNegativeNumber.toString().isEmpty()) {
+                throw new IllegalArgumentException("Negative not allowed: "+checkNegativeNumber.toString());
+            }
             return i;
         }
     }
     private int sum(String[] nums){
         int sum=0;
         for(String values:nums){
+            if(Integer.parseInt(values) < 0) {
+                if(checkNegativeNumber.toString().isEmpty()) {
+                    checkNegativeNumber.append(values.toString());
+                } else {
+                    checkNegativeNumber.append(","+values.toString());
+                }
+            }
             sum+=Integer.parseInt(values);
         }
         return sum;
