@@ -50,7 +50,7 @@ public class CalcTest {
         try {
             calc.add("5,-10,15,-20,30");
         } catch (IllegalArgumentException e) {
-            Assert.assertEquals("Negative not allowed: -10,-20",e.getMessage());
+            Assert.assertEquals("Negative numbers are not allowed: -10,-20",e.getMessage());
         }
     }
 
@@ -59,7 +59,7 @@ public class CalcTest {
         try {
             calc.add("-5");
         } catch (IllegalArgumentException e) {
-            Assert.assertEquals("Negative not allowed: -5",e.getMessage());
+            Assert.assertEquals("Negative numbers are not allowed: -5",e.getMessage());
         }
     }
 
@@ -75,6 +75,6 @@ public class CalcTest {
 
     @Test
     public void anyLengthOfDelimiter() {
-        Assert.assertEquals(6,calc.add("//[***]\n1***2***3"));
+        Assert.assertEquals(6,calc.add("//[xxx]\n1xxx2xxx3"));
     }
 }
