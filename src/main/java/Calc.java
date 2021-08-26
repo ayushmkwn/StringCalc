@@ -3,7 +3,7 @@ import java.util.List;
 
 public class Calc {
     public int add(String input){
-        if(isEmptyCheck(input)) {
+        if(input.isEmpty()) {
             return 0;
         }
         String[] nums=null;
@@ -14,8 +14,32 @@ public class Calc {
                 delimiter = Character.toString(input.charAt(2));
                 newIP = input.substring(4);
             } else {
-                delimiter = delimiterSplitter(input);
-                newIP = substringGenerator(input);
+//                delimiter = delimiterSplitter(input);
+//                newIP = substringGenerator(input);
+
+                List<Integer> lst = new ArrayList<>();
+                int len = input.length();
+                int begin = input.indexOf('[');
+                while (begin >= 0) {
+                    lst.add(begin);
+                    begin = input.indexOf('[',begin + 1);
+                }
+
+                if(lst.size() > 1) {
+                    delimiter = "[";
+                    len = lst.size();
+
+                    for(int i = 0; i < len; i++) {
+                        int right = lst.get(i);
+                        delimiter += input.substring(right+1, right+2);
+                    }
+                    delimiter += "]";
+                    int left = lst.get(len-1);
+                    newIP = input.substring(left + 4);
+                } else {
+                    delimiter = delimiterSplitter(input);
+                    newIP = substringGenerator(input);
+                }
             }
         }
         else {
@@ -23,10 +47,6 @@ public class Calc {
         }
         nums=newIP.split(delimiter);
         return sum(nums);
-    }
-
-    private boolean isEmptyCheck(String input) {
-        return input.isEmpty();
     }
 
     private Boolean isMultiDelimiterCheck(String input) {
@@ -61,7 +81,7 @@ public class Calc {
 
     private void checkAndIgnoreNegative(String[] nums) {
         String checkNegative = negativeChecker(nums);
-        if(!isEmptyCheck(checkNegative)) {
+        if(!checkNegative.isEmpty()) {
             throw new IllegalArgumentException("Negative numbers are not allowed: "+checkNegative);
         }
     }
@@ -73,10 +93,6 @@ public class Calc {
                 number.add(val);
             }
         }
-        return lstToStr(number);
-    }
-
-    private String lstToStr(List<String> nums) {
-        return String.join(",",nums);
+        return String.join(",",number);
     }
 }
