@@ -6,19 +6,16 @@ public class Calc {
         if(input.isEmpty()) {
             return 0;
         }
-        String[] nums=null;
-        String delimiter=null;
+        String[] nums;
+        StringBuilder delimiter;
         String newIP=input;
         if(input.startsWith("//")) {
             if(isMultiDelimiterCheck(input)) {
-                delimiter = Character.toString(input.charAt(2));
+                delimiter = new StringBuilder(Character.toString(input.charAt(2)));
                 newIP = input.substring(4);
             } else {
-//                delimiter = delimiterSplitter(input);
-//                newIP = substringGenerator(input);
-
                 List<Integer> lst = new ArrayList<>();
-                int len = input.length();
+                int len;
                 int begin = input.indexOf('[');
                 while (begin >= 0) {
                     lst.add(begin);
@@ -26,35 +23,31 @@ public class Calc {
                 }
 
                 if(lst.size() > 1) {
-                    delimiter = "[";
+                    delimiter = new StringBuilder("[");
                     len = lst.size();
 
                     for(int i = 0; i < len; i++) {
                         int right = lst.get(i);
-                        delimiter += input.substring(right+1, right+2);
+                        delimiter.append(input.charAt(right + 1));
                     }
-                    delimiter += "]";
+                    delimiter.append("]");
                     int left = lst.get(len-1);
                     newIP = input.substring(left + 4);
                 } else {
-                    delimiter = delimiterSplitter(input);
+                    delimiter = new StringBuilder(delimiterSplitter(input));
                     newIP = substringGenerator(input);
                 }
             }
         }
         else {
-            delimiter = "[,\n]";
+            delimiter = new StringBuilder("[,\n]");
         }
-        nums=newIP.split(delimiter);
+        nums=newIP.split(delimiter.toString());
         return sum(nums);
     }
 
     private Boolean isMultiDelimiterCheck(String input) {
-        if(input.charAt(2) == '[') {
-            return false;
-        } else {
-            return true;
-        }
+        return input.charAt(2) != '[';
     }
 
     private String delimiterSplitter(String input) {
@@ -69,7 +62,8 @@ public class Calc {
     }
 
     private int sum(String[] nums) {
-        int sum = 0;
+        int sum;
+        sum = 0;
         checkAndIgnoreNegative(nums);
         for(String values:nums) {
             if(Integer.parseInt(values) <= 1000){
@@ -87,7 +81,7 @@ public class Calc {
     }
 
     private String negativeChecker(String[] nums) {
-        List<String> number = new ArrayList<String>();
+        List<String> number = new ArrayList<>();
         for(String val:nums) {
             if(Integer.parseInt(val) < 0) {
                 number.add(val);
