@@ -77,4 +77,9 @@ public class CalcTest {
     public void anyLengthOfDelimiter() {
         Assert.assertEquals(6,calc.add("//[xxx]\n1xxx2xxx3"));
     }
+
+    @Test
+    public void multipleDelimiters() {
+        Assert.assertEquals(6,calc.add("//[a][b]\n1c2d3"));
+    }
 }
