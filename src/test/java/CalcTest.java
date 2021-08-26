@@ -82,4 +82,9 @@ public class CalcTest {
     public void multipleDelimiters() {
         Assert.assertEquals(6,calc.add("//[;][,]\n1;2,3"));
     }
+
+    @Test
+    public void multipleDelimitersofAnyLength() {
+        Assert.assertEquals(6,calc.add("//[;;][,]\n1;;;2,,3"));
+    }
 }
