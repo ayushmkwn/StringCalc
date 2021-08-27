@@ -1,6 +1,6 @@
 # StringCalc
 
-#### The list below are the cases which I have included
+#### The list of the cases
 
 1.  Create a simple String calculator with a method signature
 2.  Allow the Add method to handle an unknown amount of numbers
