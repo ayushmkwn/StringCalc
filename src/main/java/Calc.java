@@ -27,7 +27,7 @@ public class Calc {
                     lst2.add(end);
                     end=input.indexOf(']',end+1);
                 }
-                //int len;
+
                 int last = lst2.get(lst.size() - 1);
 
                 StringBuilder s = new StringBuilder();
@@ -53,24 +53,6 @@ public class Calc {
                 }
                 delimiter = s.toString();
                 newIP = input.substring(last + 2);
-
-//
-//                if(lst.size() > 1) {
-//                    delimiter = new StringBuilder("[");
-//                    len = lst.size();
-//
-//                    for(int i = 0; i < len; i++) {
-//                        int right = lst.get(i);
-//                        delimiter.append(input.charAt(right + 1));
-//                    }
-//                    delimiter.append("]");
-//                    int left = lst.get(len-1);
-//                    newIP = input.substring(left + 4);
-//                } else {
-//                    delimiter = new StringBuilder(delimiterSplitter(input));
-//                    newIP = substringGenerator(input);
-//                }
-
             }
         }
         else {
@@ -83,17 +65,6 @@ public class Calc {
     private Boolean isMultiDelimiterCheck(String input) {
         return input.charAt(2) != '[';
     }
-
-//    private String delimiterSplitter(String input) {
-//        int begin = input.indexOf('[');
-//        int last = input.indexOf(']');
-//        return input.substring(begin+1, last);
-//    }
-//
-//    private String substringGenerator(String input) {
-//        int last = input.indexOf(']');
-//        return input.substring(last+2);
-//    }
 
     private int sum(String[] nums) {
         int sum;
